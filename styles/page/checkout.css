@@ -41,7 +41,7 @@ body {
 }
 
 .checkout h2 {
-  color: #6366f1;
+  color: rgb(0, 118, 0);
   margin-bottom: 22px;
   font-size: 18px;
 }
@@ -79,6 +79,7 @@ body {
 .delivery-options h3 {
   font-size: 16px;
   margin-bottom: 10px;
+
 }
 
 .option {

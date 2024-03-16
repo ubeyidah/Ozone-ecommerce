@@ -1,0 +1,159 @@
+body {
+  padding: 0;
+}
+
+.orders-container {
+  max-width: 850px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.orders-container h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+
+}
+
+.order-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 50px;
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgb(240, 242, 242);
+  border: 1px solid rgb(213, 217, 217);
+  padding: 20px 25px;
+  border-radius: 10px 10px 0 0;
+}
+
+.order-header div {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-header div p:nth-child(1) {
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.order-date,
+.order-total {
+  margin-right: 45px;
+  flex-shrink: 0;
+}
+
+
+/* order body */
+.order-body {
+  padding: 40px 25px;
+  border: 1px solid rgb(213, 217, 217);
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+
+.order {
+  display: grid;
+  grid-template-columns: 110px 1fr 220px;
+  column-gap: 35px;
+  row-gap: 60px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-img img {
+  max-width: 110px;
+  max-height: 110px;
+}
+
+.buy-again-btn img {
+  width: 24px;
+}
+
+.buy-again-btn {
+  gap: 8px;
+  padding: 5px 20px;
+  border: none;
+  background-color: gold;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-name {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-delivery-date {
+  margin-bottom: 3px;
+}
+
+.product-quantity {
+  margin-bottom: 8px;
+}
+
+.track-btn {
+  padding: 9px 22px;
+  box-shadow: 3px 2px 10px rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.track-btn-container {
+  align-self: stretch;
+}
+
+
+/* media query */
+
+@media (max-width: 575px) {
+  .order-header {
+    flex-direction: column;
+    align-items: start;
+    line-height: 23px;
+    padding: 15px;
+  }
+
+  .order-header div {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .order-date,
+  .order-total {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .order {
+    grid-template-columns: 110px 1fr;
+    row-gap: 0;
+    padding-bottom: 8px;
+  }
+
+  .track-btn-container {
+    grid-column: 2;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .order {
+    grid-template-columns: 1fr;
+  }
+}
