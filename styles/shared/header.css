@@ -1,11 +1,11 @@
 .ozone-header {
-  width: 100%;
   height: 60px;
   padding: 0 50px;
 
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
 
   background: #fff;
   border-bottom: 1px solid #ccc;
@@ -17,7 +17,7 @@
 
 .ozone-header .ozone-header__left a {
   font-size: 28px;
-  color: rgb(10, 103, 196);
+  color: chocolate;
   font-family: victor-mono-bold;
 }
 
@@ -42,9 +42,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 
-.ozone-header__search-bar input:focus+.ozone-header__search-bar {
-  background: #000;
-}
 
 .ozone-header__search-bar input {
   flex: 1;
@@ -63,13 +60,13 @@
   border: none;
   border-radius: 6px;
   margin-right: 5px;
-  background: rgb(17, 157, 244);
+  background: chocolate;
   cursor: pointer;
-  transition: background-color .3s;
+  transition: opacity .3s;
 }
 
 .ozone-header .ozone-header__middle button:hover {
-  background-color: rgb(31, 143, 212);
+  opacity: .6;
 }
 
 .ozone-header .ozone-header__middle button:active {
@@ -84,7 +81,7 @@
 .ozone-header__right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .ozone-header__cart-number {
@@ -113,12 +110,18 @@
 
 .ozone-header__right a:hover,
 .cart-icon:hover {
-  color: rgb(17, 157, 244);
+  color: chocolate;
 }
 
-.ozone-header__order-link {
-  max-width: 70px;
+.ozone-header__order-link a {
+  font-size: 15px;
   line-height: 1;
+}
+
+.ozone-header__order-link a span {
+  font-size: 17px;
+  font-weight: bold;
+  display: block;
 }
 
 /* media query */
