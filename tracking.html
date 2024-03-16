@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ozone Webiste</title>
+
+  <!-- link to styles -->
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/shared/header.css">
+  <link rel="stylesheet" href="styles/page/tracking.css">
+</head>
+
+<body>
+  <!-- main header -->
+  <header class="ozone-header">
+    <!-- header left section -->
+    <div class="ozone-header__left">
+      <a href="index.html" class="ozone-header__logo">O<span>zone</span></a>
+      <a href="index.html" class="ozone-header__mobile-logo none">O</a>
+    </div>
+    <!-- header middle section -->
+    <div class="ozone-header__middle center">
+      <div class="ozone-header__search-bar center">
+        <input type="text" placeholder="Search">
+        <button class="ozone-header__search-btn center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-search search-icon" viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- header right section -->
+    <div class="ozone-header__right">
+      <div class="ozone-header__order-link">
+        <a href="order.html">Returns <span>& Orders</span></a>
+      </div>
+      <a href="checkout.html" class="ozone-header__cart-link relative">
+        <div class="ozone-header__cart-number">3</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-cart3 cart-icon"
+          viewBox="0 0 16 16">
+          <path
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+
+  <!-- tracking page -->
+  <section class="tracking">
+    <a href="order.html" class="back-link">View all orders</a>
+    <h1 class="title">Arriving on Monday, June 13</h1>
+    <p class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+    <p>Quantity: 1</p>
+    <img class="product-img" src="images/products/6-piece-white-dinner-plate-set.jpg" alt="product">
+    <div class="progress-container">
+      <div class="progress-title between">
+        <p>Preparing</p>
+        <p class="blue">Shipped</p>
+        <p>Delivered</p>
+      </div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
