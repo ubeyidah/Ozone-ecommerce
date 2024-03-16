@@ -40,6 +40,18 @@ body {
   justify-content: center;
 }
 
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .text-center {
   text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 30px;
 }

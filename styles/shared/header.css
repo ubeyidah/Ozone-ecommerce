@@ -1,4 +1,9 @@
 .ozone-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.ozone-header,
+.ozone-header .container {
   height: 60px;
   padding: 0 50px;
 
@@ -8,7 +13,6 @@
   right: 0;
 
   background: #fff;
-  border-bottom: 1px solid #ccc;
 
   display: flex;
   align-items: center;
@@ -39,7 +43,7 @@
   height: 40px;
   border-radius: 6px;
   border: 1px solid #c3c3c3;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .05);
 }
 
 
@@ -66,11 +70,11 @@
 }
 
 .ozone-header .ozone-header__middle button:hover {
-  opacity: .6;
+  opacity: .7;
 }
 
 .ozone-header .ozone-header__middle button:active {
-  opacity: .8;
+  opacity: 1;
 }
 
 .search-icon {
