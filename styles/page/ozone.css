@@ -67,11 +67,17 @@
   justify-content: start;
   color: #067d62;
   margin-bottom: 8px;
-  visibility: hidden;
+  opacity: 0;
+  transition: all .4s;
+}
+
+.show-added-msg {
+  opacity: 1;
 }
 
 .add-to-cart img {
   width: 20px;
+  margin-right: 6px;
 }
 
 .product-container__add-btn {

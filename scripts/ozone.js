@@ -24,7 +24,7 @@ products.forEach(product => {
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
-    <div class="add-to-cart center">
+    <div class="add-to-cart center js-added-text-${product.id} js-added-msg">
       <img src="images/icons/checkmark.png" alt="checkmark">Added
     </div>
     <button class="product-container__add-btn js-add-to-cart-btn" data-product-id="${product.id}">
@@ -35,7 +35,7 @@ products.forEach(product => {
 });
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
-
+let timeoutId;
 
 // make the button interactive
 document.querySelectorAll('.js-add-to-cart-btn')
@@ -43,6 +43,7 @@ document.querySelectorAll('.js-add-to-cart-btn')
     button.addEventListener("click", () => {
       const { productId } = button.dataset;
       const cartQuantitySelecotr = +document.querySelector(`.js-quantit-selector-${productId}`).value;
+      const addedMsgEl = document.querySelector(`.js-added-text-${productId}`);
       let matchItem;
 
       cart.forEach(item => {
@@ -60,6 +61,15 @@ document.querySelectorAll('.js-add-to-cart-btn')
           quantity: cartQuantitySelecotr
         })
       }
+      document.querySelectorAll('.js-added-msg')
+        .forEach(element => element.classList.remove('show-added-msg'))
+      addedMsgEl.classList.add('show-added-msg');
+
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        addedMsgEl.classList.remove('show-added-msg');
+      }, 1000)
+
 
       console.log(cart);
       updateCartQuantity();
