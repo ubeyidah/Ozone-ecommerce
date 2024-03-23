@@ -1,4 +1,4 @@
-export const cart = [{
+export const cart = JSON.parse(localStorage.getItem('cart')) || [{
   productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
   quantity: 2
 }, {
@@ -6,6 +6,7 @@ export const cart = [{
   quantity: 5
 }];
 
+// add products to cart
 export const addToCart = (productId) => {
   const cartQuantitySelecotr = +document.querySelector(`.js-quantit-selector-${productId}`).value;
   let matchItem;
@@ -25,8 +26,11 @@ export const addToCart = (productId) => {
       quantity: cartQuantitySelecotr
     })
   }
+  saveCart();
 }
 
+
+// update and display the quantity of the cart
 export function updateCartQuantity(elementClass) {
   let cartQuantity = 0;
   cart.forEach(item => cartQuantity += item.quantity);
@@ -37,4 +41,9 @@ export function updateCartQuantity(elementClass) {
     document.querySelector(elementClass)
       .textContent = cartQuantity;
   }
+}
+
+// save cart in localStorage
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
