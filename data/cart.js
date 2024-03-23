@@ -55,3 +55,9 @@ export const deleteCart = productId => {
   cart = newCart;
   saveCart();
 }
+
+// delete from HTML or render HTML
+export const deleteCartFromHTML = (productId) => {
+  const container = document.querySelector(`.js-checkout-${productId}`);
+  container.remove();
+}
