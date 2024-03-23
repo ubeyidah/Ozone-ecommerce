@@ -6,3 +6,35 @@ export const cart = [{
   quantity: 5
 }];
 
+export const addToCart = (productId) => {
+  const cartQuantitySelecotr = +document.querySelector(`.js-quantit-selector-${productId}`).value;
+  let matchItem;
+
+  cart.forEach(item => {
+    if (productId === item.productId) {
+      matchItem = item;
+    }
+  });
+
+  // check if the product in the cart
+  if (matchItem) {
+    matchItem.quantity += cartQuantitySelecotr;
+  } else {
+    cart.push({
+      productId,
+      quantity: cartQuantitySelecotr
+    })
+  }
+}
+
+export function updateCartQuantity(elementClass) {
+  let cartQuantity = 0;
+  cart.forEach(item => cartQuantity += item.quantity);
+  if (elementClass === '.js-cart-quantity') {
+    document.querySelector(elementClass)
+      .textContent = cartQuantity > 99 ? 99 + '+' : cartQuantity;
+  } else {
+    document.querySelector(elementClass)
+      .textContent = cartQuantity;
+  }
+}

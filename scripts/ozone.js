@@ -1,5 +1,5 @@
 import { products } from '../data/products.js';
-import { cart } from '../data/cart.js';
+import { addToCart, updateCartQuantity } from '../data/cart.js';
 import { formatCurrency } from './utils/money.js';
 
 let productsHTML = '';
@@ -46,44 +46,26 @@ document.querySelectorAll('.js-add-to-cart-btn')
   .forEach(button => {
     button.addEventListener("click", () => {
       const { productId } = button.dataset;
-      const cartQuantitySelecotr = +document.querySelector(`.js-quantit-selector-${productId}`).value;
-      const addedMsgEl = document.querySelector(`.js-added-text-${productId}`);
-      let matchItem;
 
-      cart.forEach(item => {
-        if (productId === item.productId) {
-          matchItem = item;
-        }
-      });
+      addToCart(productId);
+      showAddedMsg(productId);
+      updateCartQuantity('.js-cart-quantity');
 
-      // check if the product in the cart
-      if (matchItem) {
-        matchItem.quantity += cartQuantitySelecotr;
-      } else {
-        cart.push({
-          productId,
-          quantity: cartQuantitySelecotr
-        })
-      }
-      document.querySelectorAll('.js-added-msg')
-        .forEach(element => element.classList.remove('show-added-msg'))
-      addedMsgEl.classList.add('show-added-msg');
-
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        addedMsgEl.classList.remove('show-added-msg');
-      }, 1000)
-
-
-      console.log(cart);
-      updateCartQuantity();
     });
   });
 
 
-function updateCartQuantity() {
-  let cartQuantity = 0;
-  cart.forEach(item => cartQuantity += item.quantity);
-  document.querySelector('.js-cart-quantity')
-    .textContent = cartQuantity > 99 ? 99 + '+' : cartQuantity;
+
+
+function showAddedMsg(productId) {
+  const addedMsgEl = document.querySelector(`.js-added-text-${productId}`);
+  document.querySelectorAll('.js-added-msg')
+    .forEach(element => element.classList.remove('show-added-msg'))
+  addedMsgEl.classList.add('show-added-msg');
+
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    addedMsgEl.classList.remove('show-added-msg');
+  }, 1000)
+
 }
