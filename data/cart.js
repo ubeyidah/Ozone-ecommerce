@@ -64,16 +64,19 @@ export const deleteCartFromHTML = (productId) => {
 
 // update
 
-export const updateCart = (productId) => {
+export const updateCart = (productId, notification) => {
   const container = document.querySelector(`.js-checkout-${productId}`);
   const inputEl = document.querySelector(`.js-quantity-input-${productId}`);
   const quantityValue = +inputEl.value;
-
   container.classList.add('is-cart-editing');
+  // validation
   if (!quantityValue || quantityValue < 1 || quantityValue >= 1000) {
     inputEl.style.borderColor = "red";
+    let timeout;
+    notification('Fill out the filed.', timeout);
     return;
   }
+
 
   cart.forEach(cartItem => {
     if (cartItem.productId === productId) {
@@ -82,5 +85,8 @@ export const updateCart = (productId) => {
   });
   saveCart();
   updateCartQuantity('.js-cart-quantity');
+  inputEl.value = '';
   container.classList.remove('is-cart-editing');
+  let timeout;
+  notification('Updated!', timeout, 'sucess')
 }

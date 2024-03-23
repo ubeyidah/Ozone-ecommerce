@@ -6,7 +6,7 @@ body {
 .ozone-header {
   border: none;
   padding: 0;
-  box-shadow: 2px 0px 10px rgba(0, 0, 0, .1);
+  box-shadow: 2px 0px 10px rgba(3, 133, 5, 0.1);
 }
 
 .ozone-header .ozone-header__middle p {
