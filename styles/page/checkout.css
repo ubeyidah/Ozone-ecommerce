@@ -162,6 +162,32 @@ hr {
   opacity: 1;
 }
 
+/* update */
+
+.update-container input {
+  width: 44px;
+  border: 2px solid black;
+  border-radius: 2px;
+  margin: 0 4px;
+  padding: 3px 4px;
+}
+
+.update-container {
+  display: none;
+}
+
+.is-cart-editing .update-container {
+  display: inline;
+}
+
+.is-cart-editing .action {
+  display: none;
+}
+
+.update-container input:focus {
+  outline: 3px solid lightblue;
+}
+
 /* media query */
 @media (max-width: 1000px) {
   .container {

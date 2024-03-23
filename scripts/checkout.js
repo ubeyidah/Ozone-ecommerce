@@ -1,4 +1,4 @@
-import { cart, deleteCart, deleteCartFromHTML, updateCartQuantity } from "../data/cart.js";
+import { cart, deleteCart, deleteCartFromHTML, updateCartQuantity, updateCart } from "../data/cart.js";
 import { products } from "../data/products.js"
 import { formatCurrency } from "./utils/money.js";
 
@@ -23,13 +23,20 @@ cart.forEach(cartItem => {
       <div class="product-detail">
         <h3 class="delivery-product__name">${matchingItem.name}</h3>
         <h4 class="delivery-product__price">$${formatCurrency(matchingItem.priceCents)}</h4>
-        <div>
-          <span class="js-cart-quantity">Quantity: ${quantity}</span>
-          <span class="delivery-product-action">Update</span>
-          <span class="delivery-product-action js-delete-links" data-product-id="${matchingItem.id}">Delete</span>
+        <div class="action">
+        <span class="js-cart-quantity" data-product-id="${matchingItem.id}">Quantity: ${quantity}</span>
+        <span class="delivery-product-action js-update-links" data-product-id="${matchingItem.id}">Update</span>
+        <span class="delivery-product-action js-delete-links" data-product-id="${matchingItem.id}">Delete</span>
         </div>
-      </div>
-      <div class="delivery-options">
+        <div class="update-container">
+        <span class="js-cart-quantity">Quantity: </span>
+        <input placeholder="${quantity}..." class="js-quantity-input-${matchingItem.id}">
+        <span class="delivery-product-action js-save-links"  data-product-id="${matchingItem.id}">Save</span>
+        <span class="delivery-product-action js-cancel-links"  data-product-id="${matchingItem.id}">Cancel</span>
+        
+        </div>
+        </div>
+        <div class="delivery-options">
         <h3>Choose a delivery option:</h3>
 
         <div class="option">
@@ -77,5 +84,34 @@ document.querySelectorAll('.js-delete-links')
 
       // delete from HTML
       deleteCartFromHTML(productId);
+    });
+  });
+
+// update
+// open update 
+document.querySelectorAll('.js-update-links')
+  .forEach(updateLink => {
+    updateLink.addEventListener('click', () => {
+      const { productId } = updateLink.dataset;
+      const container = document.querySelector(`.js-checkout-${productId}`);
+      container.classList.add('is-cart-editing');
+    });
+  });
+
+// cancel
+document.querySelectorAll('.js-cancel-links')
+  .forEach(cancelLink => {
+    cancelLink.addEventListener('click', () => {
+      const { productId } = cancelLink.dataset;
+      const container = document.querySelector(`.js-checkout-${productId}`);
+      container.classList.remove('is-cart-editing')
+    });
+  });
+
+document.querySelectorAll('.js-save-links')
+  .forEach(saveLink => {
+    const { productId } = saveLink.dataset;
+    saveLink.addEventListener('click', () => {
+      updateCart(productId);
     });
   });
