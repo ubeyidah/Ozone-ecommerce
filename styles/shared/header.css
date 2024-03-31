@@ -64,7 +64,7 @@
   border: none;
   border-radius: 6px;
   margin-right: 3.3px;
-  background: chocolate;
+  background: linear-gradient(120deg, chocolate, rgb(9, 63, 200));
   cursor: pointer;
   transition: opacity .3s;
 }
