@@ -6,10 +6,13 @@ import {
   updateCart,
   updateDeliveryOption,
 } from "./../../data/cart.js";
-import { products } from "./../../data/products.js";
+import { getProduct, products } from "./../../data/products.js";
 import formatCurrency from "./../utils/money.js";
 import { notification } from "./../utils/alert.js";
-import deliveryOptions from "./../../data/deliveryOptions.js";
+import {
+  deliveryOptions,
+  getDeliveryOption,
+} from "./../../data/deliveryOptions.js";
 import datePicker from "./../utils/date.js";
 
 export function renderOrderSummary() {
@@ -17,19 +20,9 @@ export function renderOrderSummary() {
   let orderSummuryHTML = "";
   cart.forEach((cartItem) => {
     const { productId, quantity } = cartItem;
-    let matchingItem;
-    products.forEach((product) => {
-      if (product.id === productId) {
-        matchingItem = product;
-      }
-    });
+    let matchingItem = getProduct(productId);
     // working for days based on the user selection
-    let matchingDeliveryOption;
-    deliveryOptions.forEach((option) => {
-      if (option.id === cartItem.deliveryDateId) {
-        matchingDeliveryOption = option;
-      }
-    });
+    let matchingDeliveryOption = getDeliveryOption(cartItem.deliveryDateId);
 
     const daysString = datePicker(matchingDeliveryOption.deliveryDays);
 
