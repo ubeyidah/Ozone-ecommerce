@@ -14,6 +14,7 @@ import {
 } from "./../../data/deliveryOptions.js";
 import datePicker from "./../utils/date.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
+import { renderCheckoutHeader } from "./checkoutHeader.js";
 
 export function renderOrderSummary() {
   updateCartQuantity(".js-cart-quantity");
@@ -51,7 +52,7 @@ export function renderOrderSummary() {
         </div>
         <div class="update-container">
         <span>Quantity: </span>
-        <input name="input-${productId}" placeholder="..." autofocus class="js-quantity-input-${
+        <input name="input-${productId}" placeholder="..." autofocus  class="js-quantity-input-${
       matchingItem.id
     } js-quantity-input"  data-product-id="${matchingItem.id}">
         <span class="delivery-product-action js-save-links"  data-product-id="${
@@ -111,6 +112,8 @@ export function renderOrderSummary() {
       deleteCart(productId);
       updateCartQuantity(".js-cart-quantity");
       renderPaymentSummary();
+      renderOrderSummary();
+      renderCheckoutHeader();
     });
   });
 
@@ -138,6 +141,7 @@ export function renderOrderSummary() {
     saveLink.addEventListener("click", () => {
       updateCart(productId, notification);
       renderPaymentSummary();
+      renderCheckoutHeader();
     });
   });
 
@@ -147,6 +151,7 @@ export function renderOrderSummary() {
       if (e.key === "Enter") {
         updateCart(productId, notification);
         renderPaymentSummary();
+        renderCheckoutHeader();
       }
     });
   });
@@ -158,6 +163,7 @@ export function renderOrderSummary() {
       updateDeliveryOption(productId, optionId);
       renderOrderSummary();
       renderPaymentSummary();
+      renderCheckoutHeader();
     });
   });
 }

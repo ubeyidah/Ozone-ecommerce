@@ -65,8 +65,6 @@ export const deleteCart = (productId) => {
   const newCart = cart.filter((cartItem) => cartItem.productId !== productId);
   cart = newCart;
   saveCart();
-  const container = document.querySelector(`.js-checkout-${productId}`);
-  container.remove();
 };
 
 // update
