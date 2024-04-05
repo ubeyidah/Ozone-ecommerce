@@ -31,6 +31,7 @@ export const addToCart = (productId) => {
     cart.push({
       productId,
       quantity: cartQuantitySelecotr,
+      deliveryDateId: "1",
     });
   }
   saveCart();
@@ -99,3 +100,14 @@ export const updateCart = (productId, notification) => {
   let timeout;
   notification("Updated!", timeout, "sucess");
 };
+
+// update delivery option
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      cartItem.deliveryDateId = deliveryOptionId;
+      saveCart();
+    }
+  });
+}

@@ -4,6 +4,7 @@ import {
   deleteCartFromHTML,
   updateCartQuantity,
   updateCart,
+  updateDeliveryOption,
 } from "../data/cart.js";
 import { products } from "../data/products.js";
 import formatCurrency from "./utils/money.js";
@@ -90,7 +91,7 @@ function deliveryOptionHTML(productId, deliveryId) {
     //working with option selection
     const isChecked = deliveryId === option.id ? "checked" : "";
     html += `
-    <div class="option">
+    <div class="option js-delivery-option" data-product-id="${productId}" data-option-id="${option.id}">
       <input type="radio" name="option-${productId}" ${isChecked} id="option2-${productId}">
       <div>
         <label for="option2-${productId}">${daysString}</label>
@@ -156,3 +157,11 @@ function datePicker(addedDate = 0) {
   const daysString = today.add(addedDate, "days").format("dddd, MMMM D");
   return daysString;
 }
+
+// update delivery option
+document.querySelectorAll(".js-delivery-option").forEach((optionLink) => {
+  optionLink.addEventListener("click", () => {
+    const { productId, optionId } = optionLink.dataset;
+    updateDeliveryOption(productId, optionId);
+  });
+});
