@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ozone Webiste</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ozone Webiste</title>
+    <!-- link to styles -->
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="styles/shared/header.css" />
+    <link rel="stylesheet" href="styles/page/checkout.css" />
+  </head>
 
-  <!-- link to styles -->
-  <link rel="stylesheet" href="styles/shared/general.css">
-  <link rel="stylesheet" href="styles/shared/header.css">
-  <link rel="stylesheet" href="styles/page/checkout.css">
-</head>
-
-<body>
-  <!-- main header -->
-  <header class="ozone-header">
-    <div class="container">
-      <!-- header left section -->
-      <div class="ozone-header__left">
-        <a href="index.html" class="ozone-header__logo">O<span>zone</span></a>
-        <a href="index.html" class="ozone-header__mobile-logo none">O</a>
-      </div>
-      <!-- header middle section -->
-      <div class="ozone-header__middle center">
-        <p>Checkout ( <a href="index.html"><span class="js-cart-quantity">0</span> items</a> )</p>
-      </div>
-      <!-- header right section -->
-      <div class="ozone-header__right">
-        <img src="images/icons/checkout-lock-icon.png" alt="checkout-lock-icon">
-      </div>
-    </div>
-  </header>
-
-  <!-- checkout section -->
-  <section class="checkout-container">
-
-    <div class="container">
-      <h2>Review your order</h2>
-      <!-- checkout grid -->
-      <div class="checkout-grid">
-        <!-- checkout list -->
-        <div class="checkout-lists js-order-summary-lists">
-
+  <body>
+    <!-- main header -->
+    <header class="ozone-header">
+      <div class="container">
+        <!-- header left section -->
+        <div class="ozone-header__left">
+          <a href="index.html" class="ozone-header__logo">O<span>zone</span></a>
+          <a href="index.html" class="ozone-header__mobile-logo none">O</a>
         </div>
-
-        <!-- order summary -->
-        <div class="order-summary">
-          <h3>Order Summary</h3>
-
-          <div class="between item">
-            <span>Items (<span class="js-cart-quantity">0</span>):</span>
-            <span>$42.75</span>
-          </div>
-
-          <div class="between shipping">
-            <span>Shipping & handling:</span>
-            <span>$4.99</span>
-          </div>
-
-          <div class="between total">
-            <span>Total before tax:</span>
-            <span>$47.74</span>
-          </div>
-
-          <div class="between tax">
-            <span>Estimated tax (10%):</span>
-            <span>$4.77</span>
-          </div>
-          <hr>
-
-          <div class="between order-total">
-            <span>Order total:</span>
-            <span>$52.51</span>
-          </div>
-
-          <button class="payment-btn">Place your order</button>
-
+        <!-- header middle section -->
+        <div class="ozone-header__middle center">
+          <p>
+            Checkout (
+            <a href="index.html"
+              ><span class="js-cart-quantity">0</span> items</a
+            >
+            )
+          </p>
+        </div>
+        <!-- header right section -->
+        <div class="ozone-header__right">
+          <img
+            src="images/icons/checkout-lock-icon.png"
+            alt="checkout-lock-icon"
+          />
         </div>
       </div>
+    </header>
 
-    </div>
-  </section>
+    <!-- checkout section -->
+    <section class="checkout-container">
+      <div class="container">
+        <h2>Review your order</h2>
+        <!-- checkout grid -->
+        <div class="checkout-grid">
+          <!-- checkout list -->
+          <div class="checkout-lists js-order-summary-lists"></div>
 
+          <!-- order summary -->
+          <div class="order-summary">
+            <h3>Order Summary</h3>
 
-  <script src="./scripts/checkout.js" type="module"></script>
-</body>
+            <div class="between item">
+              <span>Items (<span class="js-cart-quantity">0</span>):</span>
+              <span>$42.75</span>
+            </div>
 
+            <div class="between shipping">
+              <span>Shipping & handling:</span>
+              <span>$4.99</span>
+            </div>
+
+            <div class="between total">
+              <span>Total before tax:</span>
+              <span>$47.74</span>
+            </div>
+
+            <div class="between tax">
+              <span>Estimated tax (10%):</span>
+              <span>$4.77</span>
+            </div>
+            <hr />
+
+            <div class="between order-total">
+              <span>Order total:</span>
+              <span>$52.51</span>
+            </div>
+
+            <button class="payment-btn">Place your order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./scripts/dayjs.min.js"></script>
+    <script src="./scripts/checkout.js" type="module"></script>
+  </body>
 </html>
