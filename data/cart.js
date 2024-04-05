@@ -65,10 +65,6 @@ export const deleteCart = (productId) => {
   const newCart = cart.filter((cartItem) => cartItem.productId !== productId);
   cart = newCart;
   saveCart();
-};
-
-// delete from HTML or render HTML
-export const deleteCartFromHTML = (productId) => {
   const container = document.querySelector(`.js-checkout-${productId}`);
   container.remove();
 };

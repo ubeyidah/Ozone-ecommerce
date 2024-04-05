@@ -1,7 +1,6 @@
 import {
   cart,
   deleteCart,
-  deleteCartFromHTML,
   updateCartQuantity,
   updateCart,
   updateDeliveryOption,
@@ -14,6 +13,7 @@ import {
   getDeliveryOption,
 } from "./../../data/deliveryOptions.js";
 import datePicker from "./../utils/date.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 export function renderOrderSummary() {
   updateCartQuantity(".js-cart-quantity");
@@ -51,7 +51,7 @@ export function renderOrderSummary() {
         </div>
         <div class="update-container">
         <span>Quantity: </span>
-        <input name="input-${productId}" placeholder="..." class="js-quantity-input-${
+        <input name="input-${productId}" placeholder="..." autofocus class="js-quantity-input-${
       matchingItem.id
     } js-quantity-input"  data-product-id="${matchingItem.id}">
         <span class="delivery-product-action js-save-links"  data-product-id="${
@@ -110,9 +110,7 @@ export function renderOrderSummary() {
       // delete from cart
       deleteCart(productId);
       updateCartQuantity(".js-cart-quantity");
-
-      // delete from HTML
-      deleteCartFromHTML(productId);
+      renderPaymentSummary();
     });
   });
 
@@ -134,12 +132,12 @@ export function renderOrderSummary() {
     });
   });
 
-  // SAVE LINK
+  // update the cart
   document.querySelectorAll(".js-save-links").forEach((saveLink) => {
     const { productId } = saveLink.dataset;
     saveLink.addEventListener("click", () => {
-      const inputEl = document.querySelector(`.js-quantity-input-${productId}`);
       updateCart(productId, notification);
+      renderPaymentSummary();
     });
   });
 
@@ -148,6 +146,7 @@ export function renderOrderSummary() {
       const { productId } = input.dataset;
       if (e.key === "Enter") {
         updateCart(productId, notification);
+        renderPaymentSummary();
       }
     });
   });
@@ -158,6 +157,7 @@ export function renderOrderSummary() {
       const { productId, optionId } = optionLink.dataset;
       updateDeliveryOption(productId, optionId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 }
