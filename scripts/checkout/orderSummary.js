@@ -4,7 +4,7 @@ import {
   updateCart,
   updateDeliveryOption,
 } from "./../../data/cart.js";
-import { getProduct, products } from "./../../data/products.js";
+import { getProduct } from "./../../data/products.js";
 import formatCurrency from "./../utils/money.js";
 import { notification } from "./../utils/alert.js";
 import {
@@ -36,7 +36,7 @@ export function renderOrderSummary() {
         <h3 class="delivery-product__name js-product-name-${productId}">
         ${matchingItem.name}</h3>
         <h4 class="delivery-product__price js-product-price-${productId}">
-        $${formatCurrency(matchingItem.priceCents)}
+        ${matchingItem.getPrice()}
         </h4>
         <div class="action js-cart-quantity-${productId}">
         <span class="js-cart-quantity" 
