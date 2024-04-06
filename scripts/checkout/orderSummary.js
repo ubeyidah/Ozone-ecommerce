@@ -28,7 +28,7 @@ export function renderOrderSummary() {
     const daysString = datePicker(matchingDeliveryOption.deliveryDays);
 
     orderSummuryHTML += `
-    <div class="checkout js-checkout-${matchingItem.id}">
+    <div class="checkout js-checkout-${matchingItem.id} js-cart-item-container">
     <h2>Delivery date: ${daysString}</h2>
     <div class="checkout-product-grid">
       <div class="product-img">
@@ -36,31 +36,26 @@ export function renderOrderSummary() {
       </div>
       <div class="product-detail">
         <h3 class="delivery-product__name">${matchingItem.name}</h3>
-        <h4 class="delivery-product__price">$${formatCurrency(
-          matchingItem.priceCents
-        )}</h4>
-        <div class="action">
-        <span class="js-cart-quantity" data-product-id="${
-          matchingItem.id
-        }">Quantity: ${quantity}</span>
-        <span class="delivery-product-action js-update-links" data-product-id="${
-          matchingItem.id
-        }">Update</span>
-        <span class="delivery-product-action js-delete-links" data-product-id="${
-          matchingItem.id
-        }">Delete</span>
+        <h4 class="delivery-product__price">
+        $${formatCurrency(matchingItem.priceCents)}
+        </h4>
+        <div class="action js-cart-quantity-${productId}">
+        <span class="js-cart-quantity" 
+          data-product-id="${matchingItem.id}">Quantity: ${quantity}</span>
+        <span class="delivery-product-action js-update-links" 
+          data-product-id="${matchingItem.id}">Update</span>
+        <span class="delivery-product-action js-delete-links js-delete-link-${productId}" 
+          data-product-id="${matchingItem.id}">Delete</span>
         </div>
         <div class="update-container">
         <span>Quantity: </span>
-        <input name="input-${productId}" placeholder="..." autofocus  class="js-quantity-input-${
-      matchingItem.id
-    } js-quantity-input"  data-product-id="${matchingItem.id}">
-        <span class="delivery-product-action js-save-links"  data-product-id="${
-          matchingItem.id
-        }">Save</span>
-        <span class="delivery-product-action js-cancel-links"  data-product-id="${
-          matchingItem.id
-        }">Cancel</span>
+        <input name="input-${productId}" placeholder="..." autofocus  
+          class="js-quantity-input-${matchingItem.id} js-quantity-input"
+          data-product-id="${matchingItem.id}">
+        <span class="delivery-product-action js-save-links" 
+          data-product-id="${matchingItem.id}">Save</span>
+        <span class="delivery-product-action js-cancel-links" 
+          data-product-id="${matchingItem.id}">Cancel</span>
         </div>
         </div>
         <div class="delivery-options">
@@ -88,12 +83,10 @@ export function renderOrderSummary() {
       //working with option selection
       const isChecked = deliveryId === option.id ? "checked" : "";
       html += `
-    <div class="option js-delivery-option" data-product-id="${productId}" data-option-id="${
-        option.id
-      }">
-      <input type="radio" name="option-${productId}" ${isChecked} id="option2-${
-        productId + deliveryId
-      }">
+    <div class="option js-delivery-option" data-product-id="${productId}" 
+    data-option-id="${option.id}">
+      <input type="radio" name="option-${productId}" ${isChecked} 
+      id="option2-${productId + deliveryId}">
       <div>
         <label for="option2-${productId + deliveryId}">${daysString}</label>
         <p>${priceString} - Shipping</p>
