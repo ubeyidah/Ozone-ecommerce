@@ -1,4 +1,4 @@
-import formatCurrency from "../scripts/utils/money.js";
+import formatCurrency from "../../scripts/utils/money.js";
 
 const testFormatCurrency = (value, exeption, msg) => {
   console.log("test suite: formatCurrency");
