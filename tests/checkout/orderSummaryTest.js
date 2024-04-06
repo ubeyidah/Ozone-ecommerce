@@ -1,5 +1,7 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
 import { cart, loadFromStorage } from "../../data/cart.js";
+import { getProduct } from "../../data/products.js";
+import formatCurrency from "../../scripts/utils/money.js";
 
 describe("test suite: renderOrderSummary", () => {
   const productId1 = "3ebe75dc-64d2-4137-8860-1f5a963e534b";
@@ -44,6 +46,13 @@ describe("test suite: renderOrderSummary", () => {
     expect(
       document.querySelector(`.js-cart-quantity-${productId2}`).innerText
     ).toContain("Quantity: 2");
+    const product1Detail = getProduct(productId1);
+    expect(
+      document.querySelector(`.js-product-name-${productId1}`).innerText
+    ).toEqual(product1Detail.name);
+    expect(
+      document.querySelector(`.js-product-price-${productId1}`).innerText
+    ).toEqual(`$${formatCurrency(product1Detail.priceCents)}`);
   });
 
   it("remove Product", () => {

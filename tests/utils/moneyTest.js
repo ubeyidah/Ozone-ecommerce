@@ -11,4 +11,7 @@ describe("test suite: formatCurrency", () => {
     expect(formatCurrency(2000.5)).toEqual("20.01");
     expect(formatCurrency(2000.1)).toEqual("20.00");
   });
+  it("working with negative cent", () => {
+    expect(formatCurrency(-2090)).toEqual("-20.90");
+  });
 });
