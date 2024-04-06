@@ -1,7 +1,6 @@
 import {
   cart,
   deleteCart,
-  updateCartQuantity,
   updateCart,
   updateDeliveryOption,
 } from "./../../data/cart.js";
@@ -17,7 +16,6 @@ import { renderPaymentSummary } from "./paymentSummary.js";
 import { renderCheckoutHeader } from "./checkoutHeader.js";
 
 export function renderOrderSummary() {
-  updateCartQuantity(".js-cart-quantity");
   let orderSummuryHTML = "";
   cart.forEach((cartItem) => {
     const { productId, quantity } = cartItem;
@@ -104,7 +102,6 @@ export function renderOrderSummary() {
       const { productId } = del.dataset;
       // delete from cart
       deleteCart(productId);
-      updateCartQuantity(".js-cart-quantity");
       renderPaymentSummary();
       renderOrderSummary();
       renderCheckoutHeader();

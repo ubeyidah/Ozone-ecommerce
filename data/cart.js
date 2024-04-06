@@ -47,20 +47,9 @@ export const addToCart = (productId, test = false) => {
 export function updateCartQuantity(elementClass) {
   let cartQuantity = 0;
   cart.forEach((item) => (cartQuantity += item.quantity));
-  document.querySelectorAll(elementClass).forEach((element) => {
-    const { productId } = element.dataset;
-    if (!productId) {
-      element.textContent = cartQuantity;
-    } else {
-      cart.forEach((item) => {
-        if (item.productId === productId) {
-          element.textContent = item.quantity;
-        }
-      });
-    }
-  });
+  const element = document.querySelector(elementClass);
+  element.textContent = cartQuantity;
 }
-
 // save cart in localStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
