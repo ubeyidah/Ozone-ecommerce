@@ -1,21 +1,27 @@
-export let cart = JSON.parse(localStorage.getItem("cart")) || [
-  {
-    deliveryDateId: "1",
-    productId: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
-    quantity: 4,
-  },
-  {
-    deliveryDateId: "3",
-    productId: "54e0eccd-8f36-462b-b68a-8182611d9add",
-    quantity: 4,
-  },
-];
+export let cart;
+
+loadFromStorage();
+
+export function loadFromStorage() {
+  cart = JSON.parse(localStorage.getItem("cart")) || [
+    {
+      deliveryDateId: "1",
+      productId: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+      quantity: 4,
+    },
+    {
+      deliveryDateId: "3",
+      productId: "54e0eccd-8f36-462b-b68a-8182611d9add",
+      quantity: 4,
+    },
+  ];
+}
 
 // add products to cart
-export const addToCart = (productId) => {
-  const cartQuantitySelecotr = +document.querySelector(
-    `.js-quantit-selector-${productId}`
-  ).value;
+export const addToCart = (productId, test = false) => {
+  const cartQuantitySelecotr = test
+    ? 1
+    : +document.querySelector(`.js-quantit-selector-${productId}`).value;
   let matchItem;
 
   cart.forEach((item) => {
