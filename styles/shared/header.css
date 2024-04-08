@@ -1,5 +1,6 @@
 .ozone-header {
   border-bottom: 1px solid #ccc;
+  z-index: 100;
 }
 
 .ozone-header,
@@ -43,9 +44,8 @@
   height: 40px;
   border-radius: 6px;
   border: 1px solid #c3c3c3;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
-
 
 .ozone-header__search-bar input {
   flex: 1;
@@ -66,11 +66,11 @@
   margin-right: 3.3px;
   background: linear-gradient(120deg, chocolate, rgb(9, 63, 200));
   cursor: pointer;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 .ozone-header .ozone-header__middle button:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .ozone-header .ozone-header__middle button:active {
@@ -98,18 +98,17 @@
   top: -5px;
   font-size: 12px;
   background: darkred;
-
 }
 
 .cart-icon {
   color: black;
-  transition: color .23s;
+  transition: color 0.23s;
 }
 
 .ozone-header__right a {
   color: black;
   font-size: 1rem;
-  transition: color .23s;
+  transition: color 0.23s;
 }
 
 .ozone-header__right a:hover,

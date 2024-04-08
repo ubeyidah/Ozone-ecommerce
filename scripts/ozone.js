@@ -29,6 +29,7 @@ products.forEach((product) => {
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
+    ${product.extraInfoHTML()}
     <div class="add-to-cart center js-added-text-${product.id} js-added-msg">
       <img src="images/icons/checkmark.png" alt="checkmark">Added
     </div>
